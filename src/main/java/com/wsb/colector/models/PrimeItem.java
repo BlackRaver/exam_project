@@ -2,10 +2,6 @@ package com.wsb.colector.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
-
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;

@@ -2,25 +2,24 @@ package com.wsb.colector.controlers;
 
 import com.wsb.colector.models.PrimeItem;
 import com.wsb.colector.models.Relict;
+import com.wsb.colector.models.Warframe;
 import com.wsb.colector.repositories.PrimeItemRepository;
 import com.wsb.colector.repositories.RelictRepository;
+import com.wsb.colector.repositories.WarframeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
-import java.util.List;
-
 @RestController
-public class RelictControlLer {
+public class TestControlLer {
 
     @Autowired
     PrimeItemRepository primeItemRepository;
 
     @Autowired
     RelictRepository relictRepository;
+
+    @Autowired
+    WarframeRepository warframeRepository;
 
     @GetMapping(path = "/relict/test")
     public Relict Test(){
@@ -57,4 +56,23 @@ public class RelictControlLer {
         relict.addToDropTable(primeItem);
         return relictRepository.save(relict);
    }
+
+    @RequestMapping("/warframe/test")
+    Warframe createTestWarframe(){
+
+        PrimeItem p1 = new PrimeItem("Excalibur Prime Neuroptics",15);
+        primeItemRepository.save(p1);
+        PrimeItem p3 = new PrimeItem("Excalibur Prime Blueprint",45);
+        primeItemRepository.save(p3);
+        PrimeItem p6 = new PrimeItem("Excalibur Prime chassis",65);
+        primeItemRepository.save(p6);
+        PrimeItem p2 = new PrimeItem("Excalibur Prime Systems",100);
+        primeItemRepository.save(p2);
+
+        Warframe warframe = new Warframe("Excalibur Prime",p3,p1,p6,p2);
+
+        return warframeRepository.save(warframe);
+    }
+
+
 }

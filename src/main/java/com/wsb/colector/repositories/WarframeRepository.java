@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface WarframeRepository extends JpaRepository<Warframe,Long> {
+    Warframe findByName(String name);
 }

@@ -10,16 +10,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-public class TestControlLer {
+public class TestController {
 
     @Autowired
-    PrimeItemRepository primeItemRepository;
+    private PrimeItemRepository primeItemRepository;
 
     @Autowired
-    RelictRepository relictRepository;
+    private RelictRepository relictRepository;
 
     @Autowired
-    WarframeRepository warframeRepository;
+    private WarframeRepository warframeRepository;
 
     @GetMapping(path = "/relict/test")
     public Relict Test(){

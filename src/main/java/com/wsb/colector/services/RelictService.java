@@ -20,4 +20,8 @@ public class RelictService {
     public List<Relict> getRelictsByName(String rName) {
         return relictRepository.findAllByName(rName) ;
     }
+
+    public void saveNewRelict(Relict relict) {
+        relictRepository.save(relict);
+    }
 }

@@ -22,15 +22,15 @@ public class PrimeItem {
     private int ducats;
 
     @JsonIgnore
-    @ManyToMany(mappedBy = "drop")
-    private Set<Relict> relicts = new HashSet<>();
+    @OneToMany(mappedBy = "primeItem", cascade = CascadeType.ALL)
+    private Set<RelictDropTable> relicts = new HashSet<>();
 
     public PrimeItem(String name, int ducats) {
         this.name = name;
         this.ducats = ducats;
     }
 
-    public PrimeItem(long elementID, String name, int ducats, Set<Relict> relicts) {
+    public PrimeItem(long elementID, String name, int ducats, Set<RelictDropTable> relicts) {
         this.elementID = elementID;
         this.name = name;
         this.ducats = ducats;
@@ -64,7 +64,7 @@ public class PrimeItem {
         this.ducats = ducats;
     }
 
-    public Set<Relict> getRelicts() {
+    public Set<RelictDropTable> getRelicts() {
         return relicts;
     }
 

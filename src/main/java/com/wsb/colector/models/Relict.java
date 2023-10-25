@@ -26,47 +26,17 @@ public class Relict {
     @Column(name = "RELICT_TIER")
     private int tier;
 
-    @ManyToMany
-    @JoinTable(
-            name="RELICT_DROP_TABLE",
-            joinColumns = @JoinColumn(name="RELICT_ID"),
-            inverseJoinColumns = @JoinColumn(name = "PRIME_ITEM_ID")
-    )
-    private Set<PrimeItem> drop = new HashSet<>();
+    @OneToMany(mappedBy = "relict", cascade = CascadeType.ALL)
+    private Set<RelictDropTable> drop = new HashSet<>();
 
-    public long getRelictID() {
-        return relictID;
-    }
 
-    public void setRelictID(long relictID) {
-        this.relictID = relictID;
-    }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public int getTier() {
-        return tier;
-    }
-
-    public void setTier(int tier) {
-        this.tier = tier;
-    }
-
-    public Set<PrimeItem> getDrop() {
-        return drop;
-    }
-    public Relict(String name, int tier, PrimeItem c1) {
+    public Relict(String name, int tier) {
         this.name = name;
         this.tier = tier;
     }
 
-    public Relict(long relictID, String name, int tier, Set<PrimeItem> drop) {
+    public Relict(long relictID, String name, int tier, Set<RelictDropTable> drop) {
         this.relictID = relictID;
         this.name = name;
         this.tier = tier;
@@ -76,7 +46,7 @@ public class Relict {
     public Relict() {
     }
 
-    public void addToDropTable(PrimeItem primeItem) {
+    public void addToDropTable(RelictDropTable primeItem) {
         drop.add(primeItem);
     }
 }

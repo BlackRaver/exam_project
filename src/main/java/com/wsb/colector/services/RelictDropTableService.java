@@ -1,5 +1,6 @@
 package com.wsb.colector.services;
 
+import com.wsb.colector.models.Relict;
 import com.wsb.colector.models.RelictDropTable;
 import com.wsb.colector.repositories.RelictDropTableRepository;
 import org.springframework.beans.factory.annotation.Autowired;

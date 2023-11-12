@@ -171,4 +171,11 @@ public class TestController {
     return new ResponseEntity <>(result,HttpStatus.CREATED );
     }
 
+    @PostMapping("/feature/test4")
+    public ResponseEntity<?> InsertNewWarframeWithDroopTable(@RequestBody Relict relict, @RequestBody RelictDropTable relictDropTable){
+        Relict result = relictRepository.save(relict);
+        relictDropTableRepository.save(relictDropTable);
+        return new ResponseEntity <>(result,HttpStatus.CREATED );
+    }
+
 }

@@ -29,14 +29,12 @@ public class Relict {
     @OneToMany(mappedBy = "relict", cascade = CascadeType.ALL)
     private Set<RelictDropTable> drop = new HashSet<>();
 
-
-
     public Relict(String name, int tier) {
         this.name = name;
         this.tier = tier;
     }
 
-    public Relict(long relictID, String name, int tier, Set<RelictDropTable> drop) {
+    public Relict(long relictID, String name, int tier, HashSet<RelictDropTable> drop) {
         this.relictID = relictID;
         this.name = name;
         this.tier = tier;
@@ -46,7 +44,13 @@ public class Relict {
     public Relict() {
     }
 
+    public Relict(long relictID) {
+        this.relictID = relictID;
+    }
+
+
     public void addToDropTable(RelictDropTable primeItem) {
         drop.add(primeItem);
     }
 }
+

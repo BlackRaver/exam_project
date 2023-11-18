@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class PrimeItemService {
@@ -17,4 +18,9 @@ public class PrimeItemService {
     public List<PrimeItem> getAllPrimeItems() {
         return primeItemRepository.findAll();
     }
+
+    public Optional<PrimeItem> getPrimeItemByName(String name){
+        return primeItemRepository.findByName(name);
+    }
+
 }

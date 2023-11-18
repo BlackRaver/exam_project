@@ -2,11 +2,18 @@ package com.wsb.colector.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+import lombok.Setter;
+
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
 @Entity
+@Getter
+@Setter
+@RequiredArgsConstructor
 @Table(name ="PRIME_ITEM")
 public class PrimeItem {
     @Id
@@ -15,7 +22,7 @@ public class PrimeItem {
     @SequenceGenerator(name = "prime_item_generator", sequenceName = "prime_item_sequence_name", allocationSize = 1)
     private long elementID;
 
-    @Column(name = "PRIME_ITEM_NAME")
+    @Column(name = "PRIME_ITEM_NAME",unique=true)
     private String name;
 
     @Column(name = "PRIME_ITEM_VALUE")
@@ -37,8 +44,8 @@ public class PrimeItem {
         this.relicts = relicts;
     }
 
-    public PrimeItem() {
-    }
+//    public PrimeItem() {
+//    }
 
     public long getElementID() {
         return elementID;

@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class RelictService {
@@ -24,6 +25,9 @@ public class RelictService {
     @Autowired
     private PrimeItemRepository primeItemRepository;
 
+    @Autowired
+    private PrimeItemService primeItemService;
+
     public List<Relict> getAllRelicts() {
         return relictRepository.findAll();
     }
@@ -36,7 +40,7 @@ public class RelictService {
         relictRepository.save(relict);
     }
 
-    public void doIt(RelictWithDropTable relictWithDropTable) {
+    public void createCompleteRelict(RelictWithDropTable relictWithDropTable) {
 
         Relict newRelict = new Relict(
                 relictWithDropTable.getRelict().getName(),
@@ -46,11 +50,20 @@ public class RelictService {
         PrimeItem[] items = new PrimeItem[6];
         RelictDropTable[] drops = new RelictDropTable[6];
         for(int i=0; i<relictWithDropTable.getDropList().size();i++){
-            items[i] = new PrimeItem(
-                    relictWithDropTable.getDropList().get(i).getPrimeItem().getName(),
-                    relictWithDropTable.getDropList().get(i).getPrimeItem().getDucats()
-            );
-            primeItemRepository.save(items[i]);
+
+            Optional <PrimeItem> check = primeItemService.getPrimeItemByName(relictWithDropTable.getDropList().get(i).getPrimeItem().getName());
+
+            if(check.isPresent()){
+                items[i] = check.get();
+            }else {
+
+                items[i] = new PrimeItem(
+                        relictWithDropTable.getDropList().get(i).getPrimeItem().getName(),
+                        relictWithDropTable.getDropList().get(i).getPrimeItem().getDucats()
+                );
+                primeItemRepository.save(items[i]);
+            }
+
             drops[i] = new RelictDropTable(
                     items[i],
                     newRelict,

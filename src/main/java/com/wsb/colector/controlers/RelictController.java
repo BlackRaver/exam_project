@@ -39,8 +39,8 @@ public class RelictController {
 
 
     @PostMapping("/create")
-    public ResponseEntity<?> CreateNewCompleteRelict(@RequestBody RelictWithDropTable relictWithDropTable){
-        relictService.doIt(relictWithDropTable);
+    public ResponseEntity<?> createCompleteRelict(@RequestBody RelictWithDropTable relictWithDropTable){
+        relictService.createCompleteRelict(relictWithDropTable);
         return new ResponseEntity <>(HttpStatus.CREATED );
     }
 

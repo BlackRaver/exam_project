@@ -1,21 +1,56 @@
 package com.wsb.colector.models;
 
 
+import jakarta.persistence.*;
 import lombok.*;
-import java.util.UUID;
 
+import java.util.HashSet;
+import java.util.Set;
 
-@AllArgsConstructor
-@NoArgsConstructor
+@Entity
 @Getter
 @Setter
 @ToString
 @EqualsAndHashCode
+@Table(name = "RELICT")
 public class Relict {
 
-    private UUID id_relict;
+    @Id
+    @Column(name = "RELICT_ID")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long relictID;
+
+    @Column(name = "RELICT_NAME")
     private String name;
-    private String common1;
+
+    @Column(name = "RELICT_TIER")
+    private int tier;
+
+    @OneToMany(mappedBy = "relict", cascade = CascadeType.ALL)
+    private Set<RelictDropTable> drop = new HashSet<>();
+
+    public Relict(String name, int tier) {
+        this.name = name;
+        this.tier = tier;
+    }
+
+    public Relict(long relictID, String name, int tier, HashSet<RelictDropTable> drop) {
+        this.relictID = relictID;
+        this.name = name;
+        this.tier = tier;
+        this.drop = drop;
+    }
+
+    public Relict() {
+    }
+
+    public Relict(long relictID) {
+        this.relictID = relictID;
+    }
 
 
+    public void addToDropTable(RelictDropTable primeItem) {
+        drop.add(primeItem);
+    }
 }
+

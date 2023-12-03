@@ -1,0 +1,18 @@
+.data-tiles{
+    border: 2px black solid;
+    background-color: #d3d3d3;
+    border-radius: 40px;
+    width: 180px;
+    height: 180px;
+    margin: 20px 15px;
+    padding: 10px;
+    color: black;
+    font-size: 25px;
+    position: relative;
+}
+
+.data-tiles > label{
+    top: 80%;
+    left: 30%;
+    position: absolute;
+}

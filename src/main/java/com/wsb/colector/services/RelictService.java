@@ -74,4 +74,8 @@ public class RelictService {
         relictRepository.save(newRelict);
 
     }
+
+    public Optional<Relict> getById(long id) {
+       return relictRepository.findById(id);
+    }
 }

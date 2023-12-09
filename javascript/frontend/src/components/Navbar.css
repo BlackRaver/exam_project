@@ -1,0 +1,38 @@
+/* Navbar Container */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333; 
+    color: white; 
+    font-size: 25px;
+    padding: 15px;
+    padding-left: 40px;
+  }
+  
+  /* Navbar Menu */
+  .navbarMenu ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+  }
+  
+  .linkListFlex {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .navbarMenu ul li {
+    margin-right: 20px;
+  }
+  
+  .navbarMenu ul li a {
+    color: white;
+    text-decoration: none;
+  }
+  
+  .navbarMenu ul li a:hover {
+    color: yellow; /* Change link color on hover */
+  }

@@ -11,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:5173")
@@ -36,6 +37,14 @@ public class RelictController {
     public ResponseEntity<Relict> addOneRelict(@RequestBody Relict relict){
         relictService.saveNewRelict(relict);
         return new ResponseEntity<>(HttpStatus.CREATED);
+    }
+    @GetMapping(path = "/{id}")
+    public ResponseEntity<?> getRelictById(@PathVariable long id){
+        Optional<Relict> relict = relictService.getById(id);
+        if(relict.isPresent()){
+            return new ResponseEntity<Relict>(relict.get(),HttpStatus.OK);
+        }
+        return new ResponseEntity<String>("Bład!!! Nie znaleziono szczegółów Reliktu o takim ID.",HttpStatus.NO_CONTENT);
     }
 
 

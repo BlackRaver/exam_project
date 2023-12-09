@@ -1,9 +1,9 @@
-import React from 'react';
 import { useGetRelictsQuery } from './api/apiRelict';
 
 import DataTiles from './DataTiles';
 import { RelictBase } from '../types';
 import TilesFlexBox from './TilesFlexBox';
+
 
 const Container = () => {
   const {
@@ -15,7 +15,6 @@ const Container = () => {
   } = useGetRelictsQuery({});
 
   let content: RelictBase[] = [];
-
 
   if (isLoading) {
     content.push({ relictID: 0,name: 'Loading...', tier: 0 }); // Displayed data for loading state
@@ -31,7 +30,7 @@ const Container = () => {
       <h2>Relikty</h2>
       <TilesFlexBox>
        {content.map((item) => (
-        <div key={item.relictID}> {/* Provide a unique key here */}
+        <div key={item.relictID}>
           <DataTiles data = {item} />
         </div>
       )) } 

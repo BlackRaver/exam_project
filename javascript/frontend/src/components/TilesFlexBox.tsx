@@ -9,7 +9,7 @@ const TilesFlexBox = ({children}) => {
     alignItems: 'center',
     alignContent: 'flex-start',
     
-    backgroundColor: 'lightcyan',
+    backgroundColor: '#9AD0C2',
     border: 'black 3px solid',
     borderRadius: '40px'
   }

@@ -1,0 +1,66 @@
+ .relicFrame {
+    border: 2px black solid;
+    border-radius: 40px;
+    background-color: #9AD0C2;
+    padding: 20px;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: 'Arial', sans-serif;
+  }
+  
+
+  .title{
+    margin-top: 45px;
+    margin-bottom: 60px;
+
+  }
+
+.primeItemListBox{
+background-color: #DBE3C5;
+width: 70%;
+border: 1px black solid;
+border-radius: 40px;
+margin-left: auto;
+margin-right: auto;
+margin-top: 50px;
+margin-bottom: 35px;
+padding: 35px;
+}
+
+
+.primeItemList{
+list-style-type: none; 
+padding: 0; 
+margin: 0;
+}
+
+.primeItemListLabel{
+    margin-left: 15px;
+    margin-right: 15px;
+    padding:0px;
+}
+
+.label1{
+position: absolute;
+left: 5%;  
+}
+
+.label2{
+  position: absolute;
+  left: 25%;  
+  }
+
+  .label3{
+    position: absolute;
+    left: 80%;  
+    }
+
+.itemRow{
+background-color: #ECF4D6;
+list-style: none;
+padding: 25px;
+position: relative;
+border: black 1px solid;
+color: black;
+}

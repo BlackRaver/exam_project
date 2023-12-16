@@ -17,12 +17,12 @@ const Container = () => {
   let content: RelictBase[] = [];
 
   if (isLoading) {
-    content.push({ relictID: 0,name: 'Loading...', tier: 0 }); // Displayed data for loading state
+    content.push({ relictID: 0,name: 'Loading...', tier: '0' }); // Displayed data for loading state
   } else if (isSuccess) {
     content = relicts; // Assuming relicts directly matches the Relict type
   } else if (isError) {
     // Error handling logic
-    content.push({relictID:0, name: `Error: ${error}`, tier: 0 }); // Displayed comunicat for error state
+    content.push({relictID:0, name: `Error: ${error}`, tier: '0' }); // Displayed comunicat for error state
   }
 
   return (

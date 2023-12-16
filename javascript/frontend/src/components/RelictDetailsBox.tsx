@@ -4,22 +4,13 @@ import "./RelictDetailsBox.css";
 const RelictDetailsBox = ({children}) => {
 const relictData:RelictData = children;
 
-const valueMap: { [key: number]: string } = {
-  1: 'Lith',
-  2: 'Meso',
-  3: 'Neo',
-  4: 'Axi'
-};
-
-const tierName: string = valueMap[relictData.tier] || '';
-
     return (<>
     <div className="title">
         <h1>Sczegóły dotyczące reliktu</h1>
     </div>
     <div className="relicFrame">
          <div>
-          <p>Name: {tierName} {relictData.name}</p>
+          <p>{relictData.tier} {relictData.name}</p>
         </div>
         <div className="primeItemListBox">
        

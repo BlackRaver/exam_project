@@ -27,17 +27,17 @@ public class Relict {
     private String name;
 
     @Column(name = "RELICT_TIER")
-    private int tier;
+    private String tier;
 
     @OneToMany(mappedBy = "relict", cascade = CascadeType.ALL)
     private Set<RelictDropTable> drop = new HashSet<>();
 
-    public Relict(String name, int tier) {
+    public Relict(String tier, String name) {//impotrant
         this.name = name;
         this.tier = tier;
     }
 
-    public Relict(long relictID, String name, int tier, HashSet<RelictDropTable> drop) {
+    public Relict(long relictID, String name, String tier, HashSet<RelictDropTable> drop) {
         this.relictID = relictID;
         this.name = name;
         this.tier = tier;

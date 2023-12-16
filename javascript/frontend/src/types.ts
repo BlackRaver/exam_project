@@ -1,7 +1,7 @@
 export interface RelictBase {
     relictID: number,
     name: string,
-    tier: number
+    tier: string
 }
 
 export interface RelictDetails {
@@ -23,14 +23,13 @@ export interface PrimeItem {
 }
 
 export interface TierInfo {
-    tierLabel: string;
     imgPath: string;
   }
 
   export interface RelictData {
     relictID: number;
     name: string;
-    tier: number;
+    tier: 'LITH' | 'MESO' | 'NEO' | 'AXI';
     drop: {
       id: number;
       primeItem: {

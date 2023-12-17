@@ -43,7 +43,7 @@ public class RelictService {
     public void createCompleteRelict(RelictWithDropTable relictWithDropTable) {
 
         Relict newRelict = new Relict(
-                relictWithDropTable.getRelict().getTier().toUpperCase(), relictWithDropTable.getRelict().getName()
+                relictWithDropTable.getRelict().getTier().toUpperCase(),relictWithDropTable.getRelict().isVaulted(), relictWithDropTable.getRelict().getName()
         );
 
         PrimeItem[] items = new PrimeItem[6];

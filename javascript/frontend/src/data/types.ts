@@ -30,6 +30,7 @@ export interface TierInfo {
     relictID: number;
     name: string;
     tier: 'LITH' | 'MESO' | 'NEO' | 'AXI';
+    vaulted: boolean;
     drop: {
       id: number;
       primeItem: {

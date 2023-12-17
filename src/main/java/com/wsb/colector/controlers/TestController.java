@@ -41,7 +41,7 @@ public class TestController {
         PrimeItem p6 = new PrimeItem("rare",100);
         primeItemRepository.save(p6);
 
-        Relict testowy = new Relict("Axi", "E1");
+        Relict testowy = new Relict("Axi", false,"E1");
 
         return relictRepository.save(testowy);
     }
@@ -100,7 +100,7 @@ public class TestController {
         PrimeItem p6 = new PrimeItem("Prime test 6",15);
         primeItemRepository.save(p6);
 
-        Relict r1 = new Relict("Neo", "A3");
+        Relict r1 = new Relict("Neo", false,"A3");
         RelictDropTable rt1 = new RelictDropTable(p1,r1,"common");
         relictDropTableRepository.save(rt1);
         RelictDropTable rt2 = new RelictDropTable(p2,r1,"common");
@@ -141,7 +141,7 @@ public class TestController {
         items.add(p6);
         primeItemRepository.saveAll(items);
 
-        Relict r1 = new Relict("Neo", "A3");
+        Relict r1 = new Relict("Neo",false, "A3");
         RelictDropTable rt1 = new RelictDropTable(p1,r1,"common");
         relictDropTableRepository.save(rt1);
         RelictDropTable rt2 = new RelictDropTable(p2,r1,"common");

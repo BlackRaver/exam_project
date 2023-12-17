@@ -16,18 +16,34 @@
 
   }
 
-.primeItemListBox{
+.primeItemTable{
 background-color: #DBE3C5;
-width: 70%;
+width: 75%;
 border: 1px black solid;
 border-radius: 40px;
 margin-left: auto;
 margin-right: auto;
-margin-top: 50px;
 margin-bottom: 35px;
 padding: 35px;
 }
 
+.primeItemTable2{
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 15px;
+  }
+
+.primeItemTable td{
+  border: black 2px solid;
+  padding: 10px;
+}
+
+.primeItemTable th{
+  border: black 3px solid;
+  font-size: larger;
+  padding: 10px;
+}
 
 .primeItemList{
 list-style-type: none; 
@@ -63,4 +79,16 @@ padding: 25px;
 position: relative;
 border: black 1px solid;
 color: black;
+}
+
+.relictLevelButton{
+  font-size: 20px;
+  background-color: #9AD0C2;
+  border-radius: 40px;
+  min-width: 80px;
+  margin: 10px 20px;
+}
+
+.relictLevelButtonActive{
+  background-color: #2D9596;
 }

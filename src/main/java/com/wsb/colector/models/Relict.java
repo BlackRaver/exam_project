@@ -29,18 +29,23 @@ public class Relict {
     @Column(name = "RELICT_TIER")
     private String tier;
 
+    @Column(name = "IS_VAULTED")
+    private boolean isVaulted;
+
     @OneToMany(mappedBy = "relict", cascade = CascadeType.ALL)
     private Set<RelictDropTable> drop = new HashSet<>();
 
-    public Relict(String tier, String name) {//impotrant
+    public Relict(String tier,boolean isVaulted, String name) {//impotrant
         this.name = name;
         this.tier = tier;
+        this.isVaulted = isVaulted;
     }
 
-    public Relict(long relictID, String name, String tier, HashSet<RelictDropTable> drop) {
+    public Relict(long relictID, String name, String tier, boolean isVaulted, HashSet<RelictDropTable> drop) {
         this.relictID = relictID;
         this.name = name;
         this.tier = tier;
+        this.isVaulted = isVaulted;
         this.drop = drop;
     }
 
